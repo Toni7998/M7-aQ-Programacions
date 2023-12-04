@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('criteris', function (Blueprint $table) {
+        Schema::create('continguts', function (Blueprint $table) {
             $table->id();
             $table->text('descripcio');
             $table->unsignedBigInteger('ra_id');
@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.

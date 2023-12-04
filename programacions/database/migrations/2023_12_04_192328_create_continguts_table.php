@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('ra_id');
             $table->foreign('ra_id')->references('id')->on('ras')->onDelete('cascade');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
