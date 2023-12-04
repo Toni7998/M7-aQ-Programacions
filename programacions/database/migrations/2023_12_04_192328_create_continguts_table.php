@@ -10,14 +10,19 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('continguts', function (Blueprint $table) {
-            $table->id();
-            $table->text('descripcio');
-            $table->unsignedBigInteger('ra_id');
-            $table->foreign('ra_id')->references('id')->on('ras')->onDelete('cascade');
-            $table->timestamps();
-            $table->engine = 'InnoDB';
-        });
+        if (Schema::hasTable('ras')) {
+            if (Schema::hasTable('continguts')) {
+                Schema::dropIfExists('continguts');
+            }
+            Schema::create('continguts', function (Blueprint $table) {
+                $table->id();
+                $table->text('descripcio');
+                $table->unsignedBigInteger('ra_id');
+                $table->foreign('ra_id')->references('id')->on('ras')->onDelete('cascade');
+                $table->timestamps();
+                $table->engine = 'InnoDB';
+            });
+        }
     }
 
     /**
