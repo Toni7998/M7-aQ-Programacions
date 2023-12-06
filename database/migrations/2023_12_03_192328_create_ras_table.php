@@ -8,7 +8,7 @@ class CreateRasTable extends Migration {
     public function up() {
         Schema::create('ras', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // Otras columnas...
+            $table->text('descripcio');
             $table->timestamps();
         });
     }
