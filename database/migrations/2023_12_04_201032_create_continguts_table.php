@@ -9,11 +9,11 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up() {
+        Schema::dropIfExists('continguts');
         Schema::create('continguts', function (Blueprint $table) {
             $table->id();
             $table->text('descripcio');
-            $table->bigInteger('a_tables_id')->unsigned();
-            $table->foreign('a_tables_id')->references('id')->on('a_tables')->onDelete('cascade');
+            $table->foreignId('ra_id')->references('id')->on('ras')->onDelete('cascade');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
