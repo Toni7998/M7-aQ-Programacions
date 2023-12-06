@@ -14,12 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->string('titol');
             $table->text('descripcio');
-            $table->unsignedBigInteger('programacio_id');
-            $table->foreign('programacio_id')->references('id')->on('programacions')->onDelete('cascade');
-            $table->unsignedBigInteger('modul_id');
-            $table->foreign('modul_id')->references('id')->on('moduls')->onDelete('cascade');
-            $table->unsignedBigInteger('uf_id');
-            $table->foreign('uf_id')->references('id')->on('ufs')->onDelete('cascade');
+            $table->foreignId('programacio_id')->references('id')->on('programacions')->onDelete('cascade');
+            $table->foreignId('modul_id')->references('id')->on('moduls')->onDelete('cascade');
+            $table->foreignId('uf_id')->references('id')->on('ufs')->onDelete('cascade');
             $table->timestamps();
         });
     }
