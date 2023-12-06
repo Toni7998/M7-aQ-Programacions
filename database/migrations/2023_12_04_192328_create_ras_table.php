@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateRasTable extends Migration {
     public function up() {
         Schema::create('ras', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             // Otras columnas...
             $table->timestamps();
         });

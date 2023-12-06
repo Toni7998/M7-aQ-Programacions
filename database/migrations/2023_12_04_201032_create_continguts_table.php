@@ -12,8 +12,8 @@ return new class extends Migration {
         Schema::create('continguts', function (Blueprint $table) {
             $table->id();
             $table->text('descripcio');
-            $table->unsignedBigInteger('ra_id');
-            $table->foreign('ra_id')->references('id')->on('ras')->onDelete('cascade');
+            $table->bigInteger('a_tables_id')->unsigned();
+            $table->foreign('a_tables_id')->references('id')->on('a_tables')->onDelete('cascade');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
