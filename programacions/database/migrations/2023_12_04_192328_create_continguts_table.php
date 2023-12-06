@@ -8,12 +8,8 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
-    {
-        if (Schema::hasTable('ras')) {
-            if (Schema::hasTable('continguts')) {
-                Schema::dropIfExists('continguts');
-            }
+    public function up() {
+        if(Schema::hasTable('ras')) {
             Schema::create('continguts', function (Blueprint $table) {
                 $table->id();
                 $table->text('descripcio');
@@ -25,11 +21,7 @@ return new class extends Migration {
         }
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
+    public function down() {
         Schema::dropIfExists('continguts');
     }
 };
